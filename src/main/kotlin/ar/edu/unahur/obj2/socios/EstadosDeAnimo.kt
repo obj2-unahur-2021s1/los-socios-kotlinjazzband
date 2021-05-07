@@ -1,9 +1,9 @@
 package ar.edu.unahur.obj2.socios
 
-open class EstadoDeAnimo(){}
+interface EstadoDeAnimo{}
 
-object estaEnojado: EstadoDeAnimo() {}
-object estaFeliz: EstadoDeAnimo() {}
-object esIndiferente: EstadoDeAnimo() {}
-object estaResfiado: EstadoDeAnimo() {}
+object EstaEnojado: EstadoDeAnimo {}
+object EstaFeliz: EstadoDeAnimo {}
+object EsIndiferente: EstadoDeAnimo {}
+object EstaResfiado: EstadoDeAnimo {}
 

@@ -1,16 +1,16 @@
 package ar.edu.unahur.obj2.socios
 
 //Dato pedido.valor a modo ejemplo
-object pedido{ fun valor()= 1000  }
-object DineroEnElBolsillo { fun dineroQueTengo()= 15 }
+object Pedido { fun valor()= 1000  }
+//object dineroEnElBolsillo { fun dineroQueTengo()= 15 }
+//val beto = Cliente(EstaFeliz,100,BarrioVerde)
+class Cliente(val estadoDeAnimo: EstadoDeAnimo, var dineroQueTengo: Int, val barrioEnQueVive: Barrio ) {
 
-class Cliente(val estadoDeAnimo: EstadoDeAnimo, val dineroQueTengo: DineroEnElBolsillo, val barrioEnQueVive: Barrio ) {
-
-    fun calculoPropinaPorEstadoDeAnimo(estadoDeAnimo: EstadoDeAnimo): Int {
+    fun calculoPropinaPorEstadoDeAnimo(): Int {
         return when (estadoDeAnimo) {
-            estaFeliz -> pedido.valor() / 4
-            esIndiferente -> DineroEnElBolsillo.dineroQueTengo()
-            estaResfiado -> pedido.valor()
+            EstaFeliz -> Pedido.valor() / 4
+            EsIndiferente -> dineroQueTengo
+            EstaResfiado -> Pedido.valor()
             //enojado no da propina
             else -> 0
         }
@@ -21,14 +21,14 @@ class Cliente(val estadoDeAnimo: EstadoDeAnimo, val dineroQueTengo: DineroEnElBo
         return maximo
     }
 
-    fun dejaPropina(barrioEnQueVive: Barrio): Int {
+    fun dejaPropina(): Int {
         return when (barrioEnQueVive) {
-            lasRosas -> this.calculoPropinaPorEstadoDeAnimo(estadoDeAnimo) + 50
-            lasLauchas -> this.calculoPropinaPorEstadoDeAnimo(estadoDeAnimo) / 2
+            LasRosas -> this.calculoPropinaPorEstadoDeAnimo() + 50
+            LasLauchas -> this.calculoPropinaPorEstadoDeAnimo() / 2
             //barrioVerde tiene que dar 200 para arriba de propina
-            barrioVerde -> this.maximoValor(calculoPropinaPorEstadoDeAnimo(estadoDeAnimo), 200)
+            BarrioVerde -> this.maximoValor(this.calculoPropinaPorEstadoDeAnimo(), 200)
             //Las torres no modifica su propina
-            else -> this.calculoPropinaPorEstadoDeAnimo(estadoDeAnimo)
+            else -> this.calculoPropinaPorEstadoDeAnimo()
         }
     }
 }
