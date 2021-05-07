@@ -6,4 +6,3 @@ object EstaEnojado: EstadoDeAnimo {}
 object EstaFeliz: EstadoDeAnimo {}
 object EsIndiferente: EstadoDeAnimo {}
 object EstaResfiado: EstadoDeAnimo {}
-

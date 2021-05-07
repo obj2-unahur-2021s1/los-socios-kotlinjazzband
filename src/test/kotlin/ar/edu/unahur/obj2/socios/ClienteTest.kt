@@ -7,33 +7,55 @@ import io.kotest.matchers.shouldBe
 
 class ClienteTest : DescribeSpec({
   describe("Un/a cliente") {
-    //val beto = Cliente()
-    //val estadoDeAnimo=EstaFeliz
-    //val dineroQueTengo=100
-    //val barrioEnQueVive=BarrioVerde
-    val beto = Cliente(EstaFeliz,100,BarrioVerde)
-// Test para propinas
+    val jose = Cliente(260, EstaEnojado,100,BarrioVerde)
+    val julian = Cliente(3000, EsIndiferente,20, LasTorres)
+    val fer = Cliente(260, EstaResfiado,100,LasLauchas)
+    val beto = Cliente(1000, EstaFeliz,100,BarrioVerde)
 
-
-    describe("Valor de pedido") {
-      it("cuanto vale el pedido") {
-        Pedido.valor().shouldBe(1000)
-
+    // Test para propinas
+    describe("Calculo Propina Por Estado De Animo: EstaEnojado") {
+      it("calculo Propina solo Por Estado De Animo de jose") {
+        jose.calculoPropinaPorEstadoDeAnimo().shouldBe(0)
       }
     }
-    describe("Calculo Propina Por Estado De Animo: EstaFeliz") {
-        it("calculo Propina Por Estado De Animo") {
-          beto.calculoPropinaPorEstadoDeAnimo().shouldBe(250)
+    describe("Propina con animo EstaEnojado y vive BarrioVerde") {
+      it("jose deja Propina si vive en BarrioVerde (minimo)") {
+        jose.valorDePropinaSiViveEn().shouldBe(200)
+      }
+    }
 
+    describe("Calculo Propina Por Estado De Animo: EsIndiferente") {
+      it("calculo Propina solo Por Estado De Animo de julian") {
+        julian.calculoPropinaPorEstadoDeAnimo().shouldBe(20)
+      }
+    }
+    describe("Propina con animo EstaEnojado y vive Las Torres") {
+      it("julian deja Propina si vive en BarrioVerde (minimo)") {
+        julian.valorDePropinaSiViveEn().shouldBe(20)
+      }
+    }
+
+    describe("Calculo Propina Por Estado De Animo: EstaResfiado") {
+      it("calculo Propina solo Por Estado De Animo de fer") {
+        fer.calculoPropinaPorEstadoDeAnimo().shouldBe(260)
+      }
+    }
+    describe("Propina con animo EstaEnojado y vive LasLauchas") {
+      it("fer deja Propina si vive en las lauchas Divide x 2") {
+        fer.valorDePropinaSiViveEn().shouldBe(130)
+      }
+    }
+
+    describe("Calculo Propina Por Estado De Animo: EstaFeliz") {
+        it("calculo Propina solo Por Estado De Animo de beto") {
+          beto.calculoPropinaPorEstadoDeAnimo().shouldBe(250)
         }
       }
-        describe("Propina con EstaFeliz y BarrioVerde") {
-      it("deja Propina ") {
-        beto.dejaPropina().shouldBe(250)
-
+    describe("Propina con animo EstaFeliz y BarrioVerde") {
+      it("beto deja Propina de beto ") {
+        beto.valorDePropinaSiViveEn().shouldBe(250)
       }
     }
-
 
   }
 })
