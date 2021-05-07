@@ -17,7 +17,7 @@ class Cliente(val estadoDeAnimo: EstadoDeAnimo, val plataEnBolsillo: Int, val ba
         }
     }
 
-    fun dejaPropina(barrioEnQueVive): Int{
+    fun dejaPropina(): Int{
         return when (barrioEnQueVive) {
             lasRosas -> this.calculoPropinaPorEstadoDeAnimo(estadoDeAnimo) + 50
             lasLauchas -> this.calculoPropinaPorEstadoDeAnimo(estadoDeAnimo)/2
