@@ -1,9 +1,9 @@
 package ar.edu.unahur.obj2.socios
 
-class EstadoDeAnimo(){}
+interface EstadoDeAnimo {
+}
 
 object estaEnojado: EstadoDeAnimo{}
 object estaFeliz: EstadoDeAnimo{}
 object esIndiferente: EstadoDeAnimo{}
 object estaResfiado: EstadoDeAnimo{}
-

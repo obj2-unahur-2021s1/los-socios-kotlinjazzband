@@ -1,7 +1,7 @@
 package ar.edu.unahur.obj2.socios
 
-class Barrio() {}
-
+interface Barrio {
+}
 object lasRosas: Barrio{}
 object lasLauchas: Barrio{}
 object barrioVerde: Barrio{}
