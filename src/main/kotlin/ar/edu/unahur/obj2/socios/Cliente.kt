@@ -28,4 +28,3 @@ class Cliente(val estadoDeAnimo: EstadoDeAnimo, val plataEnBolsillo: Int, val ba
         }
     }
 }
-
