@@ -1,8 +1,8 @@
 package ar.edu.unahur.obj2.socios
 
-class Barrio() {}
+open class Barrio() {}
 
-object lasRosas: Barrio{}
-object lasLauchas: Barrio{}
-object barrioVerde: Barrio{}
-object lasTorres: Barrio{}
+object lasRosas: Barrio() {}
+object lasLauchas: Barrio(){}
+object barrioVerde: Barrio(){}
+object lasTorres: Barrio(){}
