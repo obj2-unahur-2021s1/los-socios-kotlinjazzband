@@ -11,8 +11,32 @@ class ClienteTest : DescribeSpec({
     val julian = Cliente(3000, EsIndiferente,20, LasTorres)
     val fer = Cliente(260, EstaResfiado,100,LasLauchas)
     val beto = Cliente(1000, EstaFeliz,100,BarrioVerde)
+    val claudia = Cliente(1500, EstaResfiado,37, LasLauchas)
+    val liliana = Cliente(780, EstaResfiado, 23,LasRosas)
 
     // Test para propinas
+    describe("Calculo propina para liliana por estado De Animo: EstaResfriado") {
+      it("calculo Propina solo Por Estado De Animo de liliana") {
+        liliana.calculoPropinaPorEstadoDeAnimo().shouldBe(780)
+      }
+    }
+    describe("Propina con animo EstaResfriado y vive las Rosas") {
+      it("claudia deja Propina si vive en BarrioVerde (suma $ 50)") {
+        liliana.valorDePropinaSiViveEn().shouldBe(830)
+      }
+    }
+
+    describe("Calculo propina por Estado De Animo: EstaResfriado") {
+      it("calculo Propina solo Por Estado De Animo de Claudia") {
+        claudia.calculoPropinaPorEstadoDeAnimo().shouldBe(1500)
+      }
+    }
+    describe("Propina con animo EstaResfriado y vive las lauchas") {
+      it("claudia deja Propina si vive en BarrioVerde (supera minimo)") {
+        claudia.valorDePropinaSiViveEn().shouldBe(750)
+      }
+    }
+
     describe("Calculo Propina Por Estado De Animo: EstaEnojado") {
       it("calculo Propina solo Por Estado De Animo de jose") {
         jose.calculoPropinaPorEstadoDeAnimo().shouldBe(0)
