@@ -1,6 +1,6 @@
 package ar.edu.unahur.obj2.socios
 
-class Cliente(var pedido: Int, val estadoDeAnimo: EstadoDeAnimo, var dineroQueTengo: Int, val barrioEnQueVive: Barrio ) {
+class Cliente(val pedido: Int, var estadoDeAnimo: EstadoDeAnimo, var dineroQueTengo: Int, var barrioEnQueVive: Barrio ) {
 
     fun calculoPropinaPorEstadoDeAnimo(): Int {
         return when (estadoDeAnimo) {
